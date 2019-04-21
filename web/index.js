@@ -4,6 +4,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import App from './bootstrap';
 
+import '~/web/style/index.scss';
+
 hydrate(
   <Router>
     <App />
