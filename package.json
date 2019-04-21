@@ -21,6 +21,7 @@
   },
   "scripts": {
     "build-web": "webpack --mode=production",
-    "start-dev": "nodemon"
+    "start-dev": "nodemon",
+    "start": "node"
   }
 }
