@@ -1,3 +1,5 @@
+import StyleHandler from '~/server/utils/StyleHandler';
+
 export default (reactDom) => `
   <!DOCTYPE html>
   <html>
@@ -10,6 +12,7 @@ export default (reactDom) => `
     <body>
         <div id="root">${reactDom}</div>
         <script src="main.js"></script>
+        <style>${StyleHandler.getStyleData()}</style>
     </body>
   </html>
 `
