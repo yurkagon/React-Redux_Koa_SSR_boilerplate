@@ -5,5 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "webpack": "^4.30.0"
+  },
+  "scripts": {
+    "build-web": "webpack --mode=production"
   }
 }
