@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import config from '~/webpack.config.js';
 
-
 const buildWeb = () => new Promise((resolve, reject) => {
   webpack(config, (err, stats) => {
     const error = err || stats.hasErrors();
