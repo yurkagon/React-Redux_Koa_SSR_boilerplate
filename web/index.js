@@ -1,1 +1,6 @@
-const a = '123'
+import React from 'react';
+import { hydrate } from 'react-dom';
+
+import App from './bootstrap';
+
+hydrate(<App />, document.getElementById('root'));
