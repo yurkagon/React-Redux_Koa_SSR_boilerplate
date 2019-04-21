@@ -4,6 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-root-import": "^6.1.0",
+    "clean-webpack-plugin": "^2.0.1",
     "webpack": "^4.30.0"
   },
   "scripts": {

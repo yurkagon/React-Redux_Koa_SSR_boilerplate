@@ -1,16 +1,21 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+
+const buildFolder = 'dist';
 
 module.exports = {
-  entry: {
-    client: './web/index.js'
-  },
+  entry: './web/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, buildFolder),
     publicPath: '/'
   },
-  // module: {
-  //   rules: [
-  //     { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
-  //   ]
-  // }
+  plugins: [
+    new CleanWebpackPlugin(),
+  ],
+  module: {
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+    ]
+  }
 }
