@@ -11,7 +11,7 @@ export default ({ html, state }) => `
 
     <body>
         <div id="root">${html}</div>
-        <script>
+        <script id="redux-data-script">
           window.__REDUX_DATA__ = ${JSON.stringify(state)}
         </script>
         <script src="main.js"></script>

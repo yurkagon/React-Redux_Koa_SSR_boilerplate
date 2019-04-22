@@ -8,6 +8,14 @@ import createStore from './store';
 
 const store = createStore(window.__REDUX_DATA__);
 
+const deleteInitialReduxData = () => {
+  delete window.__REDUX_DATA__;
+
+  const element = document.getElementById('redux-data-script');
+  element.parentNode.removeChild(element);
+}
+deleteInitialReduxData();
+
 hydrate(
   <ReduxProviderBrowser store={store}>
     <Router>
