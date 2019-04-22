@@ -6,7 +6,7 @@ import routes from '~/web/routes';
 const App = () => (
   <Switch>
     {routes.map((data, index) => (
-      <Route key={index} {...data} />
+      <Route key={index} {...data} YURKAGON />
     ))}
   </Switch>
 );

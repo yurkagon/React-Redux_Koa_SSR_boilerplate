@@ -13,7 +13,7 @@ class Home extends Component {
 
   render() {
     const { data } = this.props;
-    console.log(this.props)
+
     return (
       <div className="m-auto w-75">
         <h1
@@ -23,11 +23,11 @@ class Home extends Component {
         </h1>
         <div>Some awesome home page with some awesome description like never before you havent seen</div>
         <Link to="/about">About</Link>
-        <div>
+        <div className="list">
           {data.map(({ id, title, body }) => (
-            <div key={id}>
-              <div>{title}</div>
-              <div>{body}</div>
+            <div key={id} className="item">
+              <div className="title text-center mb-2">{title}</div>
+              <div className="text">{body}</div>
             </div>
           ))}
         </div>
