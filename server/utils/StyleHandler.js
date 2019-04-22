@@ -1,6 +1,9 @@
 import sass from 'node-sass';
 
 class StyleHandler {
+  static removeCommentsInStyles = str =>
+    str.replace(/\/\*[^*]*\*+([^\/][^*]*\*+)*\//, '');
+
   _styleData = '';
 
   getStyleData = () => this._styleData;
@@ -14,7 +17,8 @@ class StyleHandler {
       if (error) {
         reject(error);
       } else {
-        const css = result.css.toString();
+        const cssData = result.css.toString();
+        const css = StyleHandler.removeCommentsInStyles(cssData);
         this._styleData = css;
 
         console.log('Sass is compiled!');

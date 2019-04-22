@@ -27,7 +27,7 @@ module.exports = {
             loader: "style-loader"
           },
           {
-            loader: "css-loader?-url"
+            loader: "css-loader"
           },
           {
             loader: "sass-loader"
