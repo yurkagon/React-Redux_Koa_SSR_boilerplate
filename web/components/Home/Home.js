@@ -1,14 +1,27 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
-class Home extends Component {
-  render() {
-    return (
-      <div>
-        <h1>It is a home page</h1>
-        <div>Some awesome home page</div>
-      </div>
-    )
-  }
+const Home = () => {
+  const [
+    descriptionVisible,
+    setDescriptionVisibility
+  ] = useState(true);
+
+  return (
+    <div className="m-auto w-75">
+      <h1
+        className="text-center"
+        onClick={() => setDescriptionVisibility(!descriptionVisible)}
+      >
+        It is a home page
+      </h1>
+      {descriptionVisible && (
+        <div>Some awesome home page with some awesome description like never before you havent seen</div>
+      )}
+      <Link to="/about">About</Link>
+
+    </div>
+  )
 }
 
 export default Home;
