@@ -3,8 +3,8 @@ import render from '~/server/render';
 
 const router = new koaRouter();
 
-router.get('*', (ctx) => {
-  const renderedPage = render(ctx.request.url);
+router.get('*', async (ctx) => {
+  const renderedPage = await render(ctx.request.url);
 
   ctx.response.status = 200;
   ctx.type = 'html';

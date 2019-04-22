@@ -1,6 +1,6 @@
 import StyleHandler from '~/server/utils/StyleHandler';
 
-export default (reactDom) => `
+export default ({ html, state }) => `
   <!DOCTYPE html>
   <html>
     <head>
@@ -10,7 +10,10 @@ export default (reactDom) => `
     </head>
 
     <body>
-        <div id="root">${reactDom}</div>
+        <div id="root">${html}</div>
+        <script>
+          window.__REDUX_DATA__ = ${JSON.stringify(state)}
+        </script>
         <script src="main.js"></script>
     </body>
   </html>
