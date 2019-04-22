@@ -10,10 +10,10 @@ import createStore from '~/web/store';
 
 import webRoutes from '~/web/routes';
 
-const render = async (url) => {
+const renderPage = async (url) => {
   const store = createStore();
 
-  const matchedRoute = webRoutes.find(route => matchPath(url, route)) || {};
+  const matchedRoute = webRoutes.find(route => route.path && matchPath(url, route)) || {};
 
   if (matchedRoute.initialLoad) {
     await store.dispatch(matchedRoute.initialLoad());
@@ -35,4 +35,13 @@ const render = async (url) => {
   return rendered;
 }
 
-export default render;
+const renderMiddlware = async (ctx) => {
+  if (ctx.response.status === 404) {
+    const renderedPage = await renderPage(ctx.request.url);
+    ctx.response.status = 200;
+    ctx.type = 'html';
+    ctx.body = renderedPage;
+  }
+}
+
+export default renderMiddlware;

@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-@connect(
-  state => ({ data: state.home.data }),
-  // (dispatch, props) => bindActionCreators({
-  //   initialLoad: props.initialLoad
-  // }, dispatch)
-)
+import { withInitialLoading } from '~/web/utils';
+
+@connect(state => ({ data: state.home.data }))
+@withInitialLoading
 class Home extends Component {
+
+  componentDidMount() {
+    const { data, initialLoad } = this.props;
+
+    if(!data.length) {
+      initialLoad();
+    }
+  }
 
   render() {
     const { data } = this.props;

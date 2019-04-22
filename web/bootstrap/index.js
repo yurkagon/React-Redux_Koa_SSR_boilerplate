@@ -5,8 +5,13 @@ import routes from '~/web/routes';
 
 const App = () => (
   <Switch>
-    {routes.map((data, index) => (
-      <Route key={index} {...data} YURKAGON />
+    {routes.map(({ initialLoad, path, component: Component, ...data }) => (
+      <Route
+        key={path + 'route'}
+        path={path}
+        component={props => <Component initialLoad={initialLoad} {...props} />}
+        {...data}
+      />
     ))}
   </Switch>
 );

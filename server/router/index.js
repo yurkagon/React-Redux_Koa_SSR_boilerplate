@@ -1,14 +1,14 @@
 import koaRouter from 'koa-router';
-import render from '~/server/render';
+// import render from '~/server/render';
 
 const router = new koaRouter();
 
-router.get('*', async (ctx) => {
-  const renderedPage = await render(ctx.request.url);
-
+router.get('/posts', async (ctx) => {
   ctx.response.status = 200;
-  ctx.type = 'html';
-  ctx.body = renderedPage;
+  // ctx.type = 'text';
+  ctx.body = {
+    data: 1
+  };
 })
 
 export default router;
