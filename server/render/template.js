@@ -1,12 +1,10 @@
-import StyleHandler from '~/server/utils/StyleHandler';
-
 export default ({ html, state }) => `
   <!DOCTYPE html>
   <html>
     <head>
         <meta charset="utf-8">
         <title>React Koa SSR</title>
-        <style>${StyleHandler.getStyleData()}</style>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>

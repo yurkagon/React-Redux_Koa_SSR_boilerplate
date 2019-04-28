@@ -38,6 +38,7 @@ const renderPage = async (url) => {
 const renderMiddlware = async (ctx) => {
   if (ctx.response.status === 404) {
     const renderedPage = await renderPage(ctx.request.url);
+
     ctx.response.status = 200;
     ctx.type = 'html';
     ctx.body = renderedPage;

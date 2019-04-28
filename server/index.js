@@ -1,4 +1,3 @@
-
 import Koa from 'koa';
 import serve from 'koa-static';
 
