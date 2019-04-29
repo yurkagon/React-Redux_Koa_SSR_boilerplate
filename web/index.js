@@ -7,6 +7,10 @@ import App from './bootstrap';
 
 import store from './store';
 
+import { IS_BROWSER_ENVIROMENT } from '~/utils';
+
+IS_BROWSER_ENVIROMENT();
+
 hydrate(
   <ReduxProviderBrowser store={store}>
     <Router>

@@ -17,3 +17,9 @@ export const onlyBrowser = (target, key, descriptor) =>  {
 
   return descriptor;
 };
+
+export const IS_BROWSER_ENVIROMENT = () => {
+  if (isServer) {
+    throw new Error('That file should be used only in the browser side')
+  }
+};

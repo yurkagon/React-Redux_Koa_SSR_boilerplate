@@ -1,5 +1,8 @@
-// only browser
 import createStore from './createStore';
+import { IS_BROWSER_ENVIROMENT } from '~/utils';
+
+// only browser
+IS_BROWSER_ENVIROMENT();
 
 const deleteInitialReduxData = () => {
   delete window.__REDUX_DATA__;
