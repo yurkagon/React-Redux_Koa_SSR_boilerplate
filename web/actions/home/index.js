@@ -12,12 +12,13 @@ export const fetchPosts = () => async (dispatch) => {
   try {
     const posts = await switcher({
       browser: async () => {
-        const response = await axios.get('http://localhost:3000/posts');
+        const response = await axios.get(`${process.env.ROOT_URL}/posts`);
 
         return response.data
       },
       server: () => require('~/server/controllers/post').getPosts()
     });
+
 
     dispatch(setPosts(posts));
   } catch (e) {
