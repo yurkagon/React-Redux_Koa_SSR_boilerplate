@@ -1,5 +1,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 const buildFolder = 'dist';
@@ -12,6 +13,9 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new CopyWebpackPlugin([
+      { from: './static', to: './' }
+    ]),
     new Dotenv()
   ],
   mode: 'development',

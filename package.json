@@ -15,6 +15,7 @@
     "babel-plugin-root-import": "^6.1.0",
     "bootstrap-css-only": "^4.3.1",
     "clean-webpack-plugin": "^2.0.1",
+    "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^2.1.1",
     "dotenv": "^7.0.0",
     "dotenv-webpack": "^1.7.0",
