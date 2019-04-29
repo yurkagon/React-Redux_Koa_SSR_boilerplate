@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Home from '~/web/components/Home';
 import About from '~/web/components/About';
 
 export default [
   {
     component: Home,
-    path: '/',
-    exact: true
+    path: '/home',
+    // exact: true
   },
   {
     component: About,

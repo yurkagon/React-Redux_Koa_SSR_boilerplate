@@ -6,8 +6,12 @@ import { withInitialLoading } from '~/web/utils';
 
 import { fetchPosts } from '~/web/actions/home';
 
+@withInitialLoading
 @connect(state => ({ data: state.home.data }))
 class Home extends Component {
+
+  static initialLoad = dispatch => dispatch(fetchPosts());
+
   static defaultProps = {
     data: []
   }
@@ -37,8 +41,5 @@ class Home extends Component {
   }
 }
 
-Home.initialLoad = dispatch => {
-  return dispatch(fetchPosts()); // return is important!
-}
 
-export default withInitialLoading(Home);
+export default Home;

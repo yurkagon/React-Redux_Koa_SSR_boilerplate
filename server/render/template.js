@@ -4,7 +4,7 @@ export default ({ html, state }) => `
     <head>
         <meta charset="utf-8">
         <title>React Koa SSR</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="${process.env.ROOT_URL}style.css">
     </head>
 
     <body>
@@ -12,7 +12,7 @@ export default ({ html, state }) => `
         <script id="redux-data-script">
           window.__REDUX_DATA__ = ${JSON.stringify(state)}
         </script>
-        <script src="main.js"></script>
+        <script src="${process.env.ROOT_URL}main.js"></script>
     </body>
   </html>
 `

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { onlyBrowser } from '~/utils';
 
@@ -10,16 +11,13 @@ export const withInitialLoading = IncommingComponent => {
   }
 
   @connect()
+  @withRouter
   class Wrapper extends Component {
     static initialLoad = initialLoad;
-    static isLoaded = false;
 
-    @onlyBrowser componentDidMount() {
-      if (!Wrapper.isLoaded) {
-        this.load();
-
-        Wrapper.isLoaded = true;
-      };
+    componentDidMount() {
+      console.log(this.props)
+      this.load();
     }
 
     @onlyBrowser load = () => {
