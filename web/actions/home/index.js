@@ -10,12 +10,14 @@ export const setPosts = posts => ({
 
 export const fetchPosts = () => async (dispatch) => {
   try {
-    const response = await switcher({
-      browser: () => axios.get('http://localhost:3000/posts'),
+    const posts = await switcher({
+      browser: async () => {
+        const response = await axios.get('http://localhost:3000/posts');
+
+        return response.data
+      },
       server: () => require('~/server/controllers/post').getPosts()
     });
-
-    const posts = response.data || response;
 
     dispatch(setPosts(posts));
   } catch (e) {
