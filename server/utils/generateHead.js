@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 
-export default () => {
+const generateHead = () => {
   const headData = Helmet.renderStatic();
   const head = Object.keys(headData).reduce((result, key) => {
     const el = headData[key].toString();
@@ -9,4 +9,6 @@ export default () => {
   }, '');
 
   return head;
-}
+};
+
+export default generateHead;
