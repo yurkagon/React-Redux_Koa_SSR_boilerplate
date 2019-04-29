@@ -14,9 +14,14 @@ const renderPage = async (url) => {
   const store = createStore();
 
   const matchedRoute = webRoutes.find(route => route.path && matchPath(url, route)) || {};
+  const { component } = matchedRoute;
 
-  if (matchedRoute.initialLoad) {
-    await store.dispatch(matchedRoute.initialLoad());
+  if (component) {
+    const { initialLoad } = component;
+
+    if (initialLoad) {
+      await initialLoad(store.dispatch);
+    }
   }
 
   const html = renderToString(

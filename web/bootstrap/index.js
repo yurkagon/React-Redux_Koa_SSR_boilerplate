@@ -5,11 +5,10 @@ import routes from '~/web/routes';
 
 const App = () => (
   <Switch>
-    {routes.map(({ initialLoad, path, component: Component, ...data }) => (
+    {routes.map(({ path, ...data }) => (
       <Route
         key={path + 'route'}
         path={path}
-        component={props => <Component initialLoad={initialLoad} {...props} />}
         {...data}
       />
     ))}

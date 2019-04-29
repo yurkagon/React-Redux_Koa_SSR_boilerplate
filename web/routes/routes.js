@@ -2,14 +2,11 @@ import React, { Fragment } from 'react';
 import Home from '~/web/components/Home';
 import About from '~/web/components/About';
 
-import { fetchPosts } from '~/web/actions/home';
-
 export default [
   {
     component: Home,
     path: '/',
-    exact: true,
-    initialLoad: fetchPosts
+    exact: true
   },
   {
     component: About,

@@ -4,16 +4,12 @@ import { connect } from 'react-redux';
 
 import { withInitialLoading } from '~/web/utils';
 
+import { fetchPosts } from '~/web/actions/home';
+
 @connect(state => ({ data: state.home.data }))
-@withInitialLoading
 class Home extends Component {
-
-  componentDidMount() {
-    const { data, initialLoad } = this.props;
-
-    if(!data.length) {
-      initialLoad();
-    }
+  static defaultProps = {
+    data: []
   }
 
   render() {
@@ -29,7 +25,7 @@ class Home extends Component {
         <div>Some awesome home page with some awesome description like never before you havent seen</div>
         <Link to="/about">About</Link>
         <div className="list">
-          {data.map(({ id, title, body }) => (
+          {data && data.map(({ id, title, body }) => (
             <div key={id} className="item">
               <div className="title text-center mb-2">{title}</div>
               <div className="text">{body}</div>
@@ -41,4 +37,8 @@ class Home extends Component {
   }
 }
 
-export default Home;
+Home.initialLoad = dispatch => {
+  return dispatch(fetchPosts()); // return is important!
+}
+
+export default withInitialLoading(Home);
