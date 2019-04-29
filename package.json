@@ -1,7 +1,6 @@
 {
   "name": "reactssr",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.4.3",
