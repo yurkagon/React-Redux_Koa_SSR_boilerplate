@@ -7,7 +7,7 @@ import generateHead from '~/server/utils/generateHead';
 import template from './template';
 
 import App from '~/web/bootstrap';
-import createStore from '~/web/store';
+import createStore from '~/web/store/createStore';
 
 import webRoutes from '~/web/routes';
 
@@ -23,7 +23,7 @@ const renderPage = async (url) => {
     if (initialLoad) {
       const match = matchPath(url, matchedRoute);
       await initialLoad({
-        dispatch: store.dispatch,
+        store,
         match
       });
     }

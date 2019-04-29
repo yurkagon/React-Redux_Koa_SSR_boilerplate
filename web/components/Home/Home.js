@@ -11,9 +11,9 @@ import { fetchPosts } from '~/web/actions/home';
 @connect(state => ({ data: state.home.data }))
 class Home extends Component {
 
-  static initialLoad = ({ dispatch, match }) => {
+  static initialLoad = ({ store, match }) => {
     console.log(match); // route params
-    return dispatch(fetchPosts());
+    return store.dispatch(fetchPosts());
   };
 
   static defaultProps = {

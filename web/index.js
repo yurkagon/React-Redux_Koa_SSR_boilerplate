@@ -4,17 +4,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider as ReduxProviderBrowser } from 'react-redux';
 
 import App from './bootstrap';
-import createStore from './store';
 
-const store = createStore(window.__REDUX_DATA__);
-
-const deleteInitialReduxData = () => {
-  delete window.__REDUX_DATA__;
-
-  const element = document.getElementById('redux-data-script');
-  element.parentNode.removeChild(element);
-}
-deleteInitialReduxData();
+import store from './store';
 
 hydrate(
   <ReduxProviderBrowser store={store}>

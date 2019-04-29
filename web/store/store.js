@@ -1,12 +1,15 @@
+// only browser
+import createStore from './createStore';
 
-import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+const deleteInitialReduxData = () => {
+  delete window.__REDUX_DATA__;
 
-import rootReducer from '~/web/reducers';
+  const element = document.getElementById('redux-data-script');
+  element.parentNode.removeChild(element);
+}
 
-export default (initialState) =>
-  createStore(
-    rootReducer,
-    initialState,
-    applyMiddleware(thunkMiddleware)
-  );
+const store = createStore(window.__REDUX_DATA__);
+
+deleteInitialReduxData();
+
+export default store;
