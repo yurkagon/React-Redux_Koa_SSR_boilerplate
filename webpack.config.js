@@ -18,7 +18,7 @@ module.exports = {
     ]),
     new Dotenv()
   ],
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   module: {
     rules: [
       {
