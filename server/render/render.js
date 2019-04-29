@@ -3,6 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter, matchPath } from 'react-router-dom';
 import { Provider as ReduxProviderServer } from 'react-redux';
 
+import generateHead from '~/server/utils/generateHead';
 import template from './template';
 
 import App from '~/web/bootstrap';
@@ -20,7 +21,11 @@ const renderPage = async (url) => {
     const { initialLoad } = component;
 
     if (initialLoad) {
-      await initialLoad(store.dispatch);
+      const match = matchPath(url, matchedRoute);
+      await initialLoad({
+        dispatch: store.dispatch,
+        match
+      });
     }
   }
 
@@ -34,7 +39,8 @@ const renderPage = async (url) => {
 
   const rendered = template({
     html,
-    state: store.getState()
+    state: store.getState(),
+    head: generateHead()
   });
 
   return rendered;

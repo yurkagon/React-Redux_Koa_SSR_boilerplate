@@ -16,14 +16,16 @@ export const withInitialLoading = IncommingComponent => {
     static initialLoad = initialLoad;
 
     componentDidMount() {
-      console.log(this.props)
       this.load();
     }
 
     @onlyBrowser load = () => {
-      const { dispatch } = this.props;
+      const { dispatch, match } = this.props;
 
-      initialLoad(dispatch);
+      initialLoad({
+        dispatch,
+        match
+      });
     }
 
     render() {

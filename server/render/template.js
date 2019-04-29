@@ -1,10 +1,11 @@
-export default ({ html, state }) => `
+export default ({ html, state, head }) => `
   <!DOCTYPE html>
   <html>
     <head>
         <meta charset="utf-8">
         <title>React Koa SSR</title>
         <link rel="stylesheet" href="${process.env.ROOT_URL}style.css">
+        ${head}
     </head>
 
     <body>

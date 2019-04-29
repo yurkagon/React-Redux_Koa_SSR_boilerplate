@@ -5,8 +5,8 @@ import About from '~/web/components/About';
 export default [
   {
     component: Home,
-    path: '/home',
-    // exact: true
+    path: '/',
+    exact: true
   },
   {
     component: About,
