@@ -17,6 +17,7 @@
     "clean-webpack-plugin": "^2.0.1",
     "css-loader": "^2.1.1",
     "dotenv": "^7.0.0",
+    "dotenv-webpack": "^1.7.0",
     "koa": "^2.7.0",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
