@@ -39,5 +39,8 @@
     "build-web": "webpack --mode=production",
     "start-dev": "NODE_ENV=development nodemon",
     "start": " NODE_ENV=production node index.js"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
