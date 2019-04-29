@@ -11,7 +11,7 @@ app.use(serve('dist'));
 app.use(router.routes());
 app.use(renderMiddleware);
 
-const port = process.env.PORT || 8080;
+const port = 8080;
 app.listen(port, async error => {
   if (!error) {
     await StyleHandler.loadStyles();
